@@ -22,17 +22,18 @@ class MyProvider extends Component {
         }
 
         // Context values that will be passed to the components:
+        // OBS: Since this object is declared ONCE (when the 'constructor' method is called) just declare STATIC VALUES or FUNCTIONS, because IT WILL NOT UPDATE when the state updates
         this.contextValues = {
-            state: this.state, // The Global State
             getOlder: () => this.setState({ age: this.state.age + 1}) // Function that increases the age value
         }
-    }
+    } 
 
     render(){
         return (
-            // Provider with an object as a value
+            // Provider with an object as a value, which contains all the necessary functions and the state
             // This 'value'(this.contextValues) can be accessed from ANY component wrapped into the 'MyContext.Consumer'
-            <MyContext.Provider value={this.contextValues}>
+            // Since that only the state is updated, it should be passed whenever the 'render' method is called. Using the rest operator, pass down all the context values
+            <MyContext.Provider value={{state: this.state, ...this.contextValues}}> 
                 {this.props.children}
             </MyContext.Provider>
         )
@@ -72,6 +73,7 @@ const AgeComponent = (props) => {
 // Main App Component: 
 export default class App extends Component {
     render(){
+        console.log('Aqui');
         return (
             // Wrapp all the application with the 'MyProvider' component, in order to use Context
             // Notice that the components are SIBLINGS and DO NOT receive any props from this Component
