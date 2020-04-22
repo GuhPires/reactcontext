@@ -5,7 +5,7 @@ Tests with the React.js Context API
 1. Clone this repo (or dowload it)
 2. Go into the created folder and install all dependencies by:
 ```
-npm intall
+npm install
 ```
 3. It should take a while, so have a break 😛
 4. Finally, run the following to start the application:
