@@ -1,5 +1,5 @@
-# reactcontext
-Tests with the React.js Context API
+# React NEW Context API
+Tests with the React.js Context API (see src/index.js to a complete code walkthrough)
 
 # Running the App
 1. Clone this repo (or dowload it)
